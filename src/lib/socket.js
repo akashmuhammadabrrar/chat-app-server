@@ -13,7 +13,11 @@ const io = new Server(server, {
   },
 });
 
-// ✅ Use an object to store online users
+export function getReceiverSocketId(userId) {
+  return userSocketMap[userId];
+}
+
+//  Use an object to store online users
 const userSocketMap = {};
 
 io.on("connection", (socket) => {
